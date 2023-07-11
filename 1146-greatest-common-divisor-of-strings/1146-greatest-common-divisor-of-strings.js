@@ -14,15 +14,23 @@ str1 and str2 consist of English uppercase letters.
  E:x
  algo:x
  ds:x
- solution:이거 이딴식으로 풀면 안될것같긴한데
-- 더 짧은 문자열 고름
-- if(짧은걸로 긴거 나눌수 있으면){
-    isDivisible = true;
-    for()
-}
+ solution: 이거 옵티멀은 아니다
+ - 짧은놈 긴놈 정하고
+ - for(len = 0 ~ 작은놈 길이)
+    if(작은놈하고 긴놈이 len으로 나눠떨어지면)
+    subStr = 작은놈.slice(0,len)
+    if(둘다 subStr로 잘 나눠진다면)return subStr;
+    -> 안나눠지면 ''
 
- time:
- space:
+checkDivide(str,subStr)
+- for(subStr길이만큼 더함)
+    - if(길이로 잘랐는데 그게 subStr이 아니면)return false;
+-return true;
+
+N : 큰 문자열 길이
+M : 작은 문자열 길이
+ time:O(N*M)
+ space:O(N+M) -> string이므로
 
  */
 var gcdOfStrings = function(str1, str2) {
