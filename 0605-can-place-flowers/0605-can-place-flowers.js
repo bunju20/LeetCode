@@ -38,28 +38,19 @@ move:
  space:O(1)
  */
 var canPlaceFlowers = function(flowerbed, n) {
-  if (n === 0) {
-    return true;
-  }
-
+  if (n === 0)return true;
   const length = flowerbed.length;
   let count = 0;
   let i = 0;
 
   while (i < length) {
-    if (
-      flowerbed[i] === 0 &&
-      (i === 0 || flowerbed[i - 1] === 0) &&
-      (i === length - 1 || flowerbed[i + 1] === 0)
-    ) {
+    let condition = flowerbed[i] === 0 &&(i === 0 || flowerbed[i - 1] === 0) && (i === length - 1 || flowerbed[i + 1] === 0);
+    
+    if (condition) {
       flowerbed[i] = 1;
       count++;
     }
-
-    if (count >= n) {
-      return true;
-    }
-
+    if (count >= n)return true;
     i++;
   }
 
